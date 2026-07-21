@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from .schemas import UserCreate, UserResponse, UserUpdate, TokenResponse, UserLogin
 from .service import create_user, get_user_by_id, get_all_users_details, update_user_details_by_id, delete_user_details_by_id, get_user_details_by_email
 from sqlalchemy.orm import Session
-from .database import get_db
+from app.core.database import get_db
 from typing import List
 
 

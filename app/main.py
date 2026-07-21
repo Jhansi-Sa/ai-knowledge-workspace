@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.api.health import router
 from app.api.v1.users.router import router as users_router
-from app.api.v1.users.database import Base, engine
+from app.core.database import Base, engine
 from app.api.v1.users import models
 
 print("Loading metadata")

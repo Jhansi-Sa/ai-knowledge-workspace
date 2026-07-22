@@ -4,6 +4,7 @@ from app.core.config import DATABASE_URL
 
 
 engine= create_engine(DATABASE_URL, echo= True)
+print(f"Database URL: {DATABASE_URL}")
 
 SessionLocal= sessionmaker(bind=engine)
 

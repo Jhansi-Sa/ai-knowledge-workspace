@@ -5,6 +5,7 @@ from app.core.database import Base, engine
 from app.api.v1.users import models
 
 print("Loading metadata")
+print(Base.metadata.tables.keys())
 Base.metadata.create_all(bind=engine)
 print("Finished create_all()")
 

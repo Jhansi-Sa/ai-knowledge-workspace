@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.api.health import router
 from app.api.v1.users.router import router as users_router
+from app.api.v1.documents.router import router as document_router
 from app.core.database import Base, engine
 from app.api.v1.users import models
 
@@ -10,8 +10,8 @@ Base.metadata.create_all(bind=engine)
 print("Finished create_all()")
 
 app= FastAPI()
-app.include_router(router)
 app.include_router(users_router)
+app.include_router(document_router)
 
 @app.get("/")
 def root():

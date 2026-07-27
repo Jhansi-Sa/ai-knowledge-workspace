@@ -33,10 +33,10 @@ def delete_user_details_by_id(user_id: int, db: Session):
         return None
     raise HTTPException(status_code=404, detail="User Not Found")
 
-def get_user_details_by_email(user:UserLogin, db: Session):
-    existing_user=get_user_by_email_from_db(user.email, db)
+def authenticate_user(email, password, db: Session):
+    existing_user=get_user_by_email_from_db(email, db)
     if existing_user:
-        if verify_password(user.password, existing_user.hashed_password):
+        if verify_password(password, existing_user.hashed_password):
             payload= {
                 "sub": str(existing_user.id),
                 "email": existing_user.email

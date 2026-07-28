@@ -28,4 +28,14 @@ def get_file_size(file:UploadFile) -> int:
     file.file.seek(0)
 
     return file_size
-    
+
+def delete_file(storage_key):
+    file_path= Path(storage_key)
+    if file_path.exists():
+        file_path.unlink()
+        
+def get_file(storage_key):
+    file_path=Path(storage_key)
+    if file_path.exists():
+        return file_path
+    raise FileNotFoundError(f"File not found: {storage_key}")
